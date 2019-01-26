@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js'></script>
+    <center>
+        <h1>Example scatter graph</h1>
+    </center>
+</head>
+
+<body>
+    <center>
+        <canvas id="chart" width="600" height="400"></canvas>
+        <script>
+            // scatter chart data
+            ctx = document.getElementById("chart").getContext("2d");
+            var plot_data = JSON.parse('{{ dataset | tojson | safe}}')
+            var scatterChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: plot_data
+                },
+                options: {
+                    responsive: false,
+                    bezierCurve : false,
+                    scales: {
+                        xAxes: [{
+                            type: 'time',
+                            position: 'bottom',
+                            time: {
+                                unit: '{{time_units}}'}
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                suggestedMin: 0,
+                                stepSize: 1
+                            }
+                        }]
+                    }
+                }
+            });;
+        </script>
+
+
+        <br>Examine another time period: <a href="{{day_link}}"> Show 1 day </a> | <a href="{{month_link}}"> Show 1 month </a> | <a href="{{year_link}}"> Show 1 year </a>
+
+    </center>
+</body>
+
+</html>
+
