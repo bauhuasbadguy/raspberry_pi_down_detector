@@ -75,6 +75,7 @@ class ping_capturer(object):
 
     def __init__(self, user, password, host, database, urls):
 
+        #connect to the database we want to save data to
         self.db = MySQLdb.connect(host, user, password, database)
         self.urls = urls
 
@@ -106,9 +107,11 @@ class ping_capturer(object):
             for name in self.urls.keys():
 
                 self.test_url_and_save_result(name, self.urls[name])
-                #wait some time before attempting another collection
+            
+
+            #wait some time before attempting another collection
             time.sleep(600)
-            print("RECOLLECTING")
+            print("RECOLLECTING, {0}".format(datetime.datetime.fromtimestamp(time.time())))
 
 ###################################
 ### End of function definitions ###

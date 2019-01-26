@@ -55,10 +55,13 @@ def line_shower(period):
 
 
     grab_cmd = "SELECT * from storedpings WHERE time >= now()- INTERVAL {0};".format(sql_period)
+    
+    print(grab_cmd)
+    print("========================")
+    #grab the data from SQL, reconnect each time to get the latest data
+    db = MySQLdb.connect("localhost", "down", "virgin", "pingstore")
+    curs = db.cursor()
 
-    #print(grab_cmd)
-    #print("========================")
-    #grab the data from SQL
     curs.execute(grab_cmd)
 
     dataJSON = [{'label':'Google pings',
@@ -106,6 +109,12 @@ def line_shower(period):
         else:
             print(row[1])
             print("********************")
+
+    #close the connections to avoid memory leaks
+    curs.close()
+    db.close()
+
+
     #reduce the number of datapoints to make sure I don't crash the server
     max_datapoints = 100
     for datai, dataset in enumerate(dataJSON):
@@ -133,9 +142,8 @@ def line_shower(period):
 
 
 #estabish the connection to the database
-db = MySQLdb.connect("localhost", "down", "virgin", "pingstore")
+#db = MySQLdb.connect("localhost", "down", "virgin", "pingstore")
 
-curs = db.cursor()
 
 if __name__ == "__main__":
     app.run(host= '0.0.0.0', debug=True)
