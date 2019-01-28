@@ -25,12 +25,14 @@
                 options: {
                     responsive: false,
                     bezierCurve : false,
+                    tension:0,
                     scales: {
                         xAxes: [{
                             type: 'time',
                             position: 'bottom',
-                            autoSkip: true,
-                            maxTicksLimit: 25,
+                            ticks: {
+                                autoSkip: true
+                            },
                             time: {
                                 unit: '{{time_units}}'}
                         }],
@@ -47,7 +49,7 @@
 
 
         <br>Examine another time period: <a href="{{day_link}}"> Show 1 day </a> | <a href="{{month_link}}"> Show 1 month </a> | <a href="{{year_link}}"> Show 1 year </a>
-
+        <br>Download all collected <a href="{{download_link}}">data</a>
     </center>
 </body>
 
