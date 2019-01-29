@@ -11,7 +11,7 @@ import logging
 
 logger = logging.getLogger("down_detector_logs")
 
-hdlr = logging.FileHandler("./logging/down_detection_logs.log")
+hdlr = logging.FileHandler("/home/pi/programs/raspberry_pi_down_detector/logging/down_detection_logs.log")
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 hdlr.setFormatter(formatter)
 logger.addHandler(hdlr)
@@ -177,7 +177,6 @@ def line_shower(period):
 
     #render the template
     return render_template('show_time_lines.html',
-                           example_text='Holy hell it\'s here',
                            dataset = dataJSON,
                            time_units=plot_period,
                            day_link='/lines/day',

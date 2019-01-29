@@ -43,7 +43,7 @@ def ping_host(hostname):
             times.append(time_num)
 
         elif 'transmitted' in ping_result:
-           print(ping_result)
+           #print(ping_result)
            #5 packets transmitted, 3 received, 40% packet loss, time 4064ms
            sent = int(ping_result.split(' ')[0])
            receved = int(ping_result.split(' ')[3])
@@ -55,7 +55,7 @@ def ping_host(hostname):
            #print(receved)
            #print('lost')
            #print(lost)
-           print('BREAKING')
+           #print('BREAKING')
            break
 
 
@@ -111,7 +111,7 @@ class ping_capturer(object):
 
             #wait some time before attempting another collection
             time.sleep(600)
-            print("RECOLLECTING, {0}".format(datetime.datetime.fromtimestamp(time.time())))
+            #print("RECOLLECTING, {0}".format(datetime.datetime.fromtimestamp(time.time())))
 
 ###################################
 ### End of function definitions ###

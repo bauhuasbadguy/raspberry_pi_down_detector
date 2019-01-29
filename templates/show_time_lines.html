@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="utf-8" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js'></script>
     <center>
-        <h1>Example scatter graph</h1>
+        <h1>Down detector</h1>
+        <br>
     </center>
 </head>
 
@@ -37,6 +38,9 @@
                                 unit: '{{time_units}}'}
                         }],
                         yAxes: [{
+                            scaleLabel: {
+                                display:true,
+                                labelString: 'Successful pings'},
                             ticks: {
                                 suggestedMin: 0,
                                 stepSize: 1
