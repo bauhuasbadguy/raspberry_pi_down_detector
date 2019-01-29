@@ -9,7 +9,7 @@ better written. That said if you do want to use this then here is a step by step
 
 2. Flash a SD card using raspbian, found here: https://www.raspberrypi.org/downloads/. If this is the first time you've set up a RPi you'll need to flash
 the SD card. This isn't a simple copy paste job (as I found out to my frustration the first time I tried owing to my lazyness when it comes to reading docs)
-Use the recomended tool etcher, found here: https://www.balena.io/etcher/
+Use the recomended tool, etcher, found here: https://www.balena.io/etcher/
 
 3. Set up the raspberry pi in headless mode. The instructions can be found here: https://howtoraspberrypi.com/how-to-raspberry-pi-headless-setup/. The short version
 is that you need to add your wifi network name and password to /etc/wpa_supplicant.conf and since ssh should be auto enabled you should be able to tunnel in. The ip
@@ -39,7 +39,7 @@ caused me a great deal of grief so make sure you can run the code not on startup
 Q. Should I use this code?
 
 A. Use it as a reference for how someone else solved the problem but I'm sure there are better versions of this elsewhere. Feel free to use it as you like but
-if you start passing it arround please send people here
+if you start passing it around please send people here
 
 Q. It won't run on startup
 
@@ -47,8 +47,7 @@ A. Try running the script using ``/usr/bin/python3`` first. It's usually a probl
 
 Q. Who's work have you pinched?
 
-A. To do this I have used Flask, chartjs and momentjs. This was one of my first javascript projects so I'm not sure what the etiqute for crediting other
-people is for this disgrace. I have downloaded chartjs and momentjs locally so that the system will work offline
+A. To do this I have used Flask, chartjs and momentjs.
 
 Q. Why do I need to be online to check if my internet is online?
 
