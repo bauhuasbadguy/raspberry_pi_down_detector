@@ -22,7 +22,26 @@ but I still recommend looking up a beginners tutorial online. You'll have to cli
 
 6. Go to /home/pi/programs and git clone this repo
 
-7. Try and run main.py using the command line using the command
+7. Install mySQL using ``sudo apt-get install mysql-server``
+
+8. Go into mySQL and create a database "pingstore" and set up a user "down" 
+with password "virgin" on "localhost". Generic instructions can be found here:
+http://recipes.item.ntnu.no/setting-up-an-sql-database-on-the-raspberry-pi/
+
+9. In your new database set up a new table called "storedpings" which has the
+columns:
+
+* time - DATETIME
+* event - TINYTEXT
+* sent_pings - TINYINT(2)
+* sent_pings - TINYINT(2)
+* receved_pings - TINYINT(2)
+* lost_pings - TINYINT(2)
+* min_ping_time - FLOAT
+* max_ping_time - FLOAT
+* avg_ping_time - FLOAT
+
+10. Try and run main.py using the command line using the command
 
 ``sudo /usr/bin/python3 /home/pi/programs/raspberry_pi_down_detector.py``
 
@@ -30,7 +49,7 @@ if this doesn't work nothing else will so you need to debug that first. You shou
 
 ``http://<RPi's ip address>:5000/``
 
-8. Now you need to run your server on startup so run ``sudo nano /etc/rc.local`` and add ``/usr/bin/python3 /home/pi/programs/raspberry_pi_down_detector.py`` to this
+11. Now you need to run your server on startup so run ``sudo nano /etc/rc.local`` and add ``/usr/bin/python3 /home/pi/programs/raspberry_pi_down_detector.py`` to this
 file after fi but before exit 0. Reboot your RPi using ``sudo reboot now`` and if in 5 minutes you can still access the webpage you've been successful. This step
 caused me a great deal of grief so make sure you can run the code not on startup using ``/usr/bin/python3`` before attempting this step.
 
